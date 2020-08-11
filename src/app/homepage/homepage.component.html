@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="card card-stats">
+            <div class="card-footer" style="text-align: center">
+                <h1>Gestion des interventions d'un consultant</h1><br/>
+                <a><img src="/assets/img/consulting.png" width="500px" height="400px"></a>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+        <div class="card">
+            <div class="card-header card-header-tabs card-header-primary">
+            <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title">Contactez-nous</span>
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                </ul>
+                </div>
+            </div>
+            </div>
+            <div class="card-body">
+            <div class="tab-content">
+                <div class="tab-pane active" id="profile">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>Benjamin JAOUI</td>
+                        <td><a href="tel:0646309283">0646309283</a></td>
+                        <td><a href="mailto:benji.jaoui@hotmail.fr ">benji.jaoui@hotmail.fr </a></td>
+                    </tr>
+                    <tr>
+                        <td>Joyce ELMALEH</td>
+                        <td><a href="tel:0658003726">0658003726</a></td>
+                        <td><a href="mailto:elmalehjoyce@gmail.com">elmalehjoyce@gmail.com</a></td>
+                    </tr>
+                        <td>Cheina SELLAM</td>
+                        <td><a href="tel:0601020304">0601020304</a></td>
+                        <td><a href="mailto:cheina@ort.fr">cheina@ort.fr</a></td>
+                    <tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+        <div class="card">
+            <div class="card-header card-header-warning">
+            <h4 class="card-title">Liste des clients</h4>
+            <p class="card-category"></p>
+            </div>
+            <div class="card-body table-responsive">
+            <table class="table table-hover">
+                <thead class="text-warning">
+                <th>Nom de l'entreprise</th>
+                <th>Nom du client</th>
+                <th>Prénom</th>
+                <th>Type d'intervention</th>
+                </thead>
+                <tbody>
+                        <tr *ngFor="let client of listeclient" style="background-color: black; color: white">
+                                <td>{{client.nom_entreprise}}</td>
+                                <td>{{client.nom}}</td>
+                                <td>{{client.prenom}}</td>
+                                <td>{{client.id_type_intervention}}</td>
+                                
+                                </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="container">
+    <table class="table table-hover" style="background: linear-gradient(60deg, #47b8bc, #246eaa); box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(39, 126, 176, 0.4)">
+        <thead class="text-warning">
+            <th>Nom de l'entreprise</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Adresse</th>
+            <th>Ville</th>
+            <th>Code postal</th>
+            <th>Pays</th>
+            <th>Téléphone</th>
+            <th>Type d'intervention</th>
+            <th>Actions</th>
+
+
+        </thead>
+        <tbody>
+            <tr *ngFor="let client of listeclient" style="background-color: white; color: #074d83">
+                <td>{{client.nom_entreprise}}</td>
+                <td>{{client.nom}}</td>
+                <td>{{client.prenom}}</td>
+                <td>{{client.adresse}}</td>
+                <td>{{client.ville}}</td>
+                <td>{{client.cp}}</td>
+                <td>{{client.pays}}</td>
+                <td>{{client.tel}}</td>
+                <td>{{client.id_type}}</td>
+                
+                <button (click)="deleteClient(client.id_client)" class="btn btn-default btn-sm">
+                        <i class="material-icons">
+                                delete
+                                </i>
+                </button>
+                 
+                <button (click)="deleteClient(client.id_client)" class="btn btn-primary btn-sm">
+                        <i class="material-icons">
+                                create
+                                </i>
+                </button>
+
+
+            </tr>
+        </tbody>
+
+    </table>
+</div>

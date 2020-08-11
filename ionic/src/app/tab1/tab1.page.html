@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Créer une intervention
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-card class="welcome-card">
+      <ion-img src="assets/consulting.png"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle>Formulaire</ion-card-subtitle>
+        <!-- <ion-card-title>Welcome to Ionic</ion-card-title> -->
+      </ion-card-header>
+      <ion-card-content>
+        <p>Vous pouvez saisir une intervention</p>
+      </ion-card-content>
+    </ion-card>
+    <form (ngSubmit)="Form()">
+      <ion-item>
+        <ion-label>Client</ion-label>
+        <ion-select placeholder="choix du client" [(ngModel)]="intervention.client" name="client">
+          <ion-select-option *ngFor="let client of clients" value="{{client.id_client}}">
+            {{client.nom}} {{client.prenom}} 
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Date d'arrivée</ion-label>
+        <ion-datetime [(ngModel)]="intervention.date_depart" name="date_depart" displayFormat="DD/MMM/YYYY"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Date de départ</ion-label>
+        <ion-datetime [(ngModel)]="intervention.date_arrivee" name="date_arrivee" displayFormat="DD/MMM/YYYY"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Heure d'arrivée </ion-label>
+        <ion-datetime [(ngModel)]="intervention.heure_arrivee" name="heure_arrivee" displayFormat="h:mm a"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Heure de départ </ion-label>
+        <ion-datetime [(ngModel)]="intervention.heure_depart" name="heure_depart" displayFormat="h:mm a"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Montant</ion-label>
+        <ion-input type="number" [(ngModel)]="intervention.montant" name="montant"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>Type</ion-label>
+          <ion-select placeholder="choix du type intervention" [(ngModel)]="intervention.type" name="type">
+            <ion-select-option *ngFor="let type of types" value="{{type.id_type}}">
+              {{type.libelle_intervention}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      <ion-item>
+        <ion-label>informations supplémentaires</ion-label>
+        <ion-input [(ngModel)]="intervention.info_sup" name="info_sup"></ion-input>
+      </ion-item>
+      <ion-card class="welcome-card">
+        <ion-card-content>
+          <ion-button ion-button type="submit" color="primary">Valider </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </form>
+    <ion-card-content *ngIf="comment">
+      <p>{{comment}}</p>
+    </ion-card-content>
+  </ion-content>

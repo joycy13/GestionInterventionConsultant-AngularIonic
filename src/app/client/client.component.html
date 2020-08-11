@@ -1,0 +1,126 @@
+<!-- alt shift f  -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Client</h4>
+                        <p class="card-category">Renseignez les informations</p>
+                    </div>
+
+                    <div class="card-body">
+                        <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Nom de l'entreprise</label>
+                                        <input formControlName="nomEntreprise" type="text"  class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Email</label>
+                                        <input formControlName="email" type="email"  class="form-control" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row"> 
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Nom</label>
+                                        <input formControlName="nom" type="text"  class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Prénom</label>
+                                        <input formControlName="prenom" type="text"  class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Téléphone</label>
+                                        <input formControlName="tel" type="number"  class="form-control" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="intervention">Type d'intervention</label>
+                                    <!-- <select id="intervention" class="form-control"  name="intervention" >
+                                <option value=""></option>
+                                <option value="developpement">developpement</option>
+                                <option value="reseaux">reseaux</option>
+                                <option value="assistance">assistance</option>
+                                <option value="autre">autre</option>
+                            </select> -->
+                                    <select  formControlName="typeintervention" id="intervention" class="form-control" >
+                                        <option *ngFor="let type_intervention of typeintervention "
+                                            value={{type_intervention.id_type}}>
+                                            {{type_intervention.libelle_intervention}}</option>
+                                    </select>
+
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Adresse</label>
+                                        <input type="text" formControlName="adresse" class="form-control"  Validators.required >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Ville</label>
+                                        <input type="text" formControlName="ville" class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Pays</label>
+                                        <input type="text"formControlName="pays" class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Code Postal</label>
+                                        <input type="number" formControlName="cp" class="form-control" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Informations Supplémentaires</label>
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating"></label>
+                                            <textarea class="form-control" rows="5" formControlName="info_sup" ></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary pull-right" [disabled]="!clientForm.value">
+                                Ajouter</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+         <!-- <ul>
+            <li *ngFor="let client of clients"> {{client.nom}}</li>
+         
+        </ul>  -->
+
+
+
+
+    </div>
+</div>
